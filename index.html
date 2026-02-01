@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reb Turns 19 • Feb 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <main class="wrap">
+    <section class="card">
+      <header class="top">
+        <div class="pill">February 1 • Soft Pastel Theme</div>
+        <h1>Happy Birthday, <span class="grad">Reb</span> 🎀</h1>
+        <p class="sub">Press <b>Space</b> or click the button to blow the candles ✨</p>
+      </header>
+
+      <div class="cakeArea" id="cakeArea">
+        <svg class="cake" viewBox="0 0 520 420" role="img" aria-label="Birthday cake with number 19">
+          <!-- plate shadow -->
+          <ellipse cx="260" cy="360" rx="190" ry="28" fill="rgba(120,120,160,.12)"></ellipse>
+
+          <!-- plate -->
+          <ellipse cx="260" cy="350" rx="210" ry="34" fill="rgba(255,255,255,.65)"></ellipse>
+          <ellipse cx="260" cy="350" rx="190" ry="26" fill="rgba(255,255,255,.35)"></ellipse>
+
+          <!-- cake base -->
+          <rect x="120" y="170" width="280" height="170" rx="36" fill="rgba(255, 205, 226, .95)"></rect>
+          <rect x="120" y="170" width="280" height="55" rx="36" fill="rgba(255, 173, 210, .65)"></rect>
+
+          <!-- frosting drip -->
+          <path d="M135 205
+                   C160 235 185 185 210 220
+                   C235 255 260 185 285 220
+                   C310 255 335 185 360 220
+                   C385 255 410 195 385 205
+                   L385 250
+                   C360 280 335 230 310 270
+                   C285 310 260 230 235 270
+                   C210 310 185 230 160 270
+                   C140 292 132 272 135 250 Z"
+                fill="rgba(255,255,255,.78)"></path>
+
+          <!-- cake highlight -->
+          <path d="M140 210 C200 190 310 190 380 210"
+                stroke="rgba(255,255,255,.55)" stroke-width="10" stroke-linecap="round" fill="none"></path>
+
+          <!-- “19” topper -->
+          <g class="topper">
+            <path d="M245 140 L245 95" stroke="rgba(200,180,255,.9)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M285 140 L285 95" stroke="rgba(170,220,255,.9)" stroke-width="10" stroke-linecap="round"/>
+            <rect x="220" y="55" width="80" height="55" rx="16" fill="rgba(255,255,255,.75)"></rect>
+            <text x="260" y="92" text-anchor="middle" font-size="34" font-weight="800"
+                  fill="rgba(255, 120, 170, .95)">19</text>
+          </g>
+
+          <!-- Candles injected by JS -->
+          <g id="candles"></g>
+        </svg>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="blowBtn">Blow the Candles 💨</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <p class="hint">Tip: You can change the message inside <code>index.html</code>.</p>
+    </section>
+  </main>
+
+  <!-- NOTE MODAL (shows after blow) -->
+  <div class="modal" id="noteModal" aria-hidden="true" role="dialog" aria-label="Gift note">
+    <div class="modalCard" role="document">
+      <div class="modalTop">
+        <div>
+          <h3 class="modalTitle">Happy 19th, Reb 💌</h3>
+          <p class="modalSub">February 1 • A small gift note for you</p>
+        </div>
+
+        <button class="iconBtn" id="closeModalBtn" aria-label="Close">✕</button>
+      </div>
+
+      <div class="photoRow">
+        <!-- Message (scrollable) -->
+        <div class="photoBox">
+          <div class="label">for you</div>
+
+          <div class="msgBox" id="msgBox">
+            <p id="msgText">
+              Happy 19th Birthday, Reb 🎀<br><br>
+              It’s kind of hard to believe how fast time goes…<br>
+              I hope this year brings you soft days, bright moments,
+              and the happiest surprises.<br><br>
+             Love you 💗
+            </p>
+          </div>
+        </div>
+
+  
+
+            <div class="photoPreview" id="photoPreview">
+              <img src="Snoopy.jpg" alt="Gift photo">
+            </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

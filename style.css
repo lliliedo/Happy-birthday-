@@ -1,0 +1,323 @@
+:root{
+  --bg1:#fff6fb;
+  --bg2:#f3fbff;
+  --bg3:#f6f2ff;
+
+  --pink:#ff76b6;
+  --pink2:#ff9fcc;
+  --lav:#cdbdff;
+  --sky:#a9ddff;
+
+  --card: rgba(255,255,255,.72);
+  --stroke: rgba(180,170,210,.35);
+  --text: rgba(65,45,70,.92);
+  --muted: rgba(65,45,70,.65);
+
+  --shadow: 0 18px 50px rgba(140,110,160,.18);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: var(--text);
+  overflow-x:hidden;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2) 55%, var(--bg3));
+}
+
+.bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events:none;
+  background:
+    radial-gradient(700px 420px at 18% 22%, rgba(255,118,182,.22), transparent 60%),
+    radial-gradient(700px 420px at 82% 20%, rgba(169,221,255,.28), transparent 60%),
+    radial-gradient(760px 520px at 55% 85%, rgba(205,189,255,.28), transparent 60%);
+}
+
+#fx{
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events:none;
+}
+
+.wrap{
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 48px 18px;
+}
+
+.card{
+  width: min(920px, 100%);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  padding: 22px;
+}
+
+.top{ text-align:center; }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(160,150,190,.35);
+  background: rgba(255,255,255,.55);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h1{
+  margin: 14px 0 8px;
+  font-size: clamp(34px, 4.2vw, 54px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.grad{
+  background: linear-gradient(90deg, var(--pink), var(--pink2), var(--lav), var(--sky));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color: transparent;
+}
+
+.sub{
+  margin: 0 auto 16px;
+  color: var(--muted);
+  max-width: 60ch;
+  line-height: 1.6;
+}
+
+.cakeArea{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 10px 10px 6px;
+}
+
+.cake{
+  width: min(520px, 100%);
+  height: auto;
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+button{
+  border: 1px solid rgba(160,150,190,.35);
+  background: rgba(255,255,255,.65);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 750;
+  cursor:pointer;
+  transition: transform .12s ease, filter .12s ease;
+}
+
+button:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+
+button.primary{
+  border: 0;
+  background: linear-gradient(135deg, rgba(255,118,182,.92), rgba(205,189,255,.92));
+  color: rgba(60,35,60,.92);
+  box-shadow: 0 14px 30px rgba(255,118,182,.20);
+}
+
+.hint{
+  text-align:center;
+  margin: 12px 0 0;
+  color: rgba(65,45,70,.55);
+  font-size: 12px;
+}
+
+/* Candle visuals */
+.candle-body{ fill: rgba(255,255,255,.85); }
+.candle-stripe{ stroke: rgba(255,118,182,.55); stroke-width: 5; stroke-linecap: round; }
+.wick{ stroke: rgba(120,90,120,.55); stroke-width: 4; stroke-linecap: round; }
+.flame{ filter: drop-shadow(0 6px 10px rgba(255,170,90,.25)); }
+.flameCore{ fill: rgba(255,205,120,.85); }
+.flameOuter{ fill: rgba(255,155,200,.55); }
+.off .flame{ opacity: 0; }
+
+/* ===== Modal note ===== */
+.modal{
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: none;
+  place-items: center;
+  padding: 18px;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(8px);
+}
+
+.modal.show{ display: grid; }
+
+.modalCard{
+  width: min(840px, 100%);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(160,150,190,.35);
+  border-radius: 24px;
+  box-shadow: 0 22px 70px rgba(140,110,160,.22);
+  padding: 18px;
+}
+
+.modalTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.modalTitle{
+  margin: 0;
+  font-size: 18px;
+}
+
+.modalSub{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.iconBtn{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  padding: 0;
+  display:grid;
+  place-items:center;
+}
+
+.label{
+  display:block;
+  margin: 10px 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+textarea{
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border-radius: 16px;
+  padding: 12px 12px;
+  border: 1px solid rgba(160,150,190,.35);
+  background: rgba(255,255,255,.65);
+  color: var(--text);
+  outline:none;
+  line-height: 1.5;
+}
+
+.photoRow{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 820px){
+  .photoRow{ grid-template-columns: 1fr; }
+}
+
+.photoBox{
+  border-radius: 18px;
+  border: 1px solid rgba(160,150,190,.35);
+  background: rgba(255,255,255,.55);
+  padding: 12px;
+}
+
+.photoPreview{
+  height: 220px;
+  border-radius: 14px;
+  border: 1px dashed rgba(160,150,190,.45);
+  background: rgba(255,255,255,.55);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.photoPreview img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoHint{
+  color: rgba(65,45,70,.55);
+  font-size: 12px;
+  text-align:center;
+  padding: 10px;
+}
+
+input[type="file"]{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.noteActions{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  justify-content:flex-start;
+}
+
+.tiny{
+  margin: 12px 0 0;
+  color: rgba(65,45,70,.55);
+  font-size: 12px;
+}
+/* ===== Fix: Modal behaves like a second page + mobile-friendly ===== */
+.modal{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modalCard{
+  max-height: 92vh;
+  overflow: auto;
+}
+
+/* Sticky labels inside boxes so they don't "move away" */
+.photoBox .label{
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.75);
+  padding: 8px 10px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+/* Scrollable message box (your HTML already uses msgBox) */
+.msgBox{
+  max-height: 260px;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(160,150,190,.25);
+}
+
+/* Small mobile polish */
+@media (max-width: 820px){
+  .photoPreview{ height: 200px; }
+  .modalCard{ padding: 14px; }
+}
